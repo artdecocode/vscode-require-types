@@ -12,7 +12,7 @@ export default async function vscodeRequireTypes(config = {}) {
     type,
   } = config
   LOG('vscode-require-types called with %s', type)
-  return type
+  throw new Error('test')
 }
 
 /**

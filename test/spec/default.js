@@ -1,4 +1,4 @@
-import { equal, ok } from 'zoroaster/assert'
+import { throws, equal } from 'zoroaster/assert'
 import Context from '../context'
 import vscodeRequireTypes from '../../src'
 
@@ -8,14 +8,10 @@ const T = {
   'is a function'() {
     equal(typeof vscodeRequireTypes, 'function')
   },
-  async 'calls package without error'() {
-    await vscodeRequireTypes()
-  },
-  async 'gets a link to the fixture'({ FIXTURE }) {
-    const res = await vscodeRequireTypes({
-      type: FIXTURE,
+  async 'calls package error'() {
+    await throws({
+      fn: vscodeRequireTypes,
     })
-    ok(res, FIXTURE)
   },
 }
 
